@@ -1,0 +1,170 @@
+<style>
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+
+
+    p {
+        color: white;
+        font-family: poppins;
+        font-size: medium;
+    }
+
+    .isi {
+        color: white;
+        font-family: poppins;
+        font-size: x-large;
+    }
+
+    @media (max-width:991px) {
+        .bijak-image {
+            left: 45%;
+        }
+
+        .bijak-content {
+            text-align: justify;
+        }
+
+        .margin-title {
+            margin-left: 100px;
+        }
+    }
+
+    .margin-title {
+        margin-left: 10%;
+
+    }
+
+    .text {
+        color: white;
+        font-family: poppins;
+    }
+</style>
+
+</head>
+
+<!-- MENU BAR -->
+
+<body>
+
+
+
+    <section class="section">
+        <div class="container col-8" style="background-color: #150544; min-height:110%; border-top-right-radius: 50px; margin-top:58px;">
+            <div class="row">
+                <div class="margin-title col-10 col-sm-7 col-lg-4 col-xl-5" style="font-family:poppins; border-style: solid; padding: 15px; border-radius:20px; color:white; margin-top:35px;">
+                    <h2 class="text-center">Layanan INTI-CSIRT</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="tentang-image col-6 col-sm-3 col-lg-5 d-none d-sm-block">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>assets/images/layanan1.png">
+                </div>
+                <div class="col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-5 text-right" style="color: white; font-family:poppins;">
+                    <div class="text" style="margin-top:60px;">
+                        <h3>
+                            <b>1.</b> Insiden <i>(Incident Triage)</i>
+                        </h3>
+
+                        <br>a. Memastikan kebenaran insiden dan pelapor
+                        <br>b. Menilai dampak dan prioritas insiden
+
+                    </div>
+                </div>
+                <div class="col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left">
+                    <div class="text" style="margin-top:60px;">
+                        <h3>
+                            <b>2.</b> Penanganan Insiden Siber
+                        </h3>
+                        <br>Layanan ini diberikan berupa kegiatan menerima, menanggapi, dan menganalisis Insiden Siber
+                    </div>
+                </div>
+                <div class="tentang-image col-6 col-sm-3 col-lg-5 d-none d-sm-block">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>assets/images/contact.png">
+                </div>
+
+                <div class="tentang-image col-6 col-sm-3 col-lg-5 d-none d-sm-block">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>assets/images/layanan3.png">
+                </div>
+                <div class="col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-right">
+                    <div class="text" style="margin-top:60px;">
+                        <h3>
+                            <b>3.</b> Kerawanan Sistem Elektronik
+                        </h3>
+                        <br>Layanan ini berupa koordinasi, analisis dan rekomendasi teknis dalam rangka penguatan aspek kendali keamanan <i>(security control)</i> baik dalam lingkup teknis ataupun non-teknis <i>(Policy/Governance)</i>. Secara umum penanganan ini dibagi menjadi :
+                        <br>1. Pelaporan kerawanan yang bersifat sewaktu oleh pemilik/penyelenggara sistem elektronik milik konstituen.
+                        <br>2. Layanan penanganan kerawanan sebagai tindak lanjut dari kegiatan audit atau <i>vulnerability assessment.</i>
+                    </div>
+                </div>
+
+                <div class="col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left">
+                    <div class="text" style="margin-top:60px;">
+                        <h3>
+                            <b>4.</b> Pemberitahuan Hasil Pengamatan Potensi Ancaman
+                        </h3>
+                        <br>Layanan ini diberikan berupa penyampaian kepada konstituen terkait ancaman terhadap Sistem Elektronik yang dapat muncul akibat perkembangan teknologi, politik, ekonomi, dan perkembangan lainnya.
+                    </div>
+                </div>
+                <div class="tentang-image col-6 col-sm-3 col-lg-5 d-none d-sm-block">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>assets/images/layanan4.png">
+                </div>
+                <div class="tentang-image col-6 col-sm-3 col-lg-5 d-none d-sm-block">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>assets/images/layanan5.png">
+                </div>
+                <div class="col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-right">
+                    <div class="text" style="margin-top:60px;">
+                        <h3>
+                            <b>5.</b> Pendeteksian Serangan
+                        </h3>
+                        <br>Tim INTI-CSIRT memiliki beberapa sistem untuk mendeteksi apakah sistem pada perusahaan yang bersangkutan dengan <i>stakeholder</i> aman atau memiliki risiko, sehingga dapat dilakukan penanggulangan sedini mungkin.
+                    </div>
+                </div>
+
+                <br><br>
+
+                <div class="col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left">
+                    <div class="text" style="margin-top:60px;">
+                        <h3>
+                            <b>6.</b> Pembangunan Kesadaran dan Kepedulian Terhadap Keamanan Siber
+                        </h3>
+                        <br>Tim INTI-CSIRT melakukan webinar mengenai isu <br>sistem keamanan informasi.
+                    </div>
+                </div>
+                <div class="tentang-image col-6 col-sm-3 col-lg-5 d-none d-sm-block">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>assets/images/layanan6.png">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="" style="height: 100px;">
+        <div class="container">
+
+        </div>
+    </section>
+
+</body>
+
+</html>

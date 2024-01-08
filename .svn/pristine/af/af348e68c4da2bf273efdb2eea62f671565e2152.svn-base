@@ -1,0 +1,615 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Dashboard extends CI_Controller
+{
+
+	/**
+	 * Index Page for this controller.
+	 *
+	 * Maps to the following URL
+	 *        http://example.com/index.php/welcome
+	 *    - or -
+	 *        http://example.com/index.php/welcome/index
+	 *    - or -
+	 * Since this controller is set as the default controller in
+	 * config/routes.php, it's displayed at http://example.com/
+	 *
+	 * So any other public methods not prefixed with an underscore will
+	 * map to /index.php/welcome/<method_name>
+	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 */
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->library('tank_auth');
+
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		} else {
+			$this->data['dataUser'] = $this->session->userdata('data_ldap');
+
+			$this->data['user_id'] = $this->tank_auth->get_user_id();
+			$this->data['username'] = $this->tank_auth->get_username();
+			$this->data['email'] = $this->tank_auth->get_email();
+
+			$profile = $this->tank_auth->get_user_profile($this->data['user_id']);
+
+			$this->data['profile_name'] = $profile['name'];
+			$this->data['profile_foto'] = $profile['foto'];
+
+			foreach ($this->tank_auth->get_roles($this->data['user_id']) as $val) {
+				$this->data['role_id'] = $val['role_id'];
+				$this->data['role'] = $val['role'];
+				$this->data['full_name_role'] = $val['full'];
+			}
+
+			$this->data['link_active'] = 'Dashboard';
+
+			//buat permission
+			if (!$this->tank_auth->permit($this->data['link_active'])) {
+				redirect('Home');
+			}
+
+			$this->load->model("Showmenu_model");
+			$this->data['ShowMenu'] = $this->Showmenu_model->getShowMenu();
+
+			$OpenShowMenu = $this->Showmenu_model->getOpenShowMenu($this->data);
+
+			$this->data['openMenu'] = $this->Showmenu_model->getDataOpenMenu($OpenShowMenu->id_menu_parent);
+			$this->load->model('admin/indok_model');
+			$this->load->model('admin/kontak_model');
+			$this->load->model('admin/buletin_model');
+			$this->load->model('admin/dokpen_model');
+			$this->load->model('Profil_model');
+		}
+	}
+
+	public function index()
+	{
+		$this->data['title'] = 'Dashboard';
+
+		$this->data['breadcrumbs'] = [];
+
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Dashboard',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('welcome_message', $this->data);
+		$this->load->view('component/footer');
+	}
+
+
+	public function indok()
+	{
+		$query = $this->indok_model->daftar_indok();
+		$data = array('indok' => $query);
+		$this->data['title'] = 'Informasi Dokumen';
+
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Pengaturan',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => ''
+		];
+
+		$this->data['breadcrumbs'][] = [
+			'active' => TRUE,
+			'text' => 'Informasi Dokumen',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('indok/indok_views', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function tambahIndok()
+	{
+		$this->form_validation->set_rules('no', 'no', 'required');
+		$this->form_validation->set_rules('judul', 'judul', 'required');
+		$this->form_validation->set_rules('isi', 'isi', 'required');
+		if ($this->form_validation->run() === FALSE) {
+		} else {
+			$data = array(
+				'no' => $this->input->post('no'),
+				'judul' => $this->input->post('judul'),
+				'isi' => $this->input->post('isi'),
+			);
+			$this->indok_model->tambah($data);
+			redirect(base_url() . 'content/indok/');
+		}
+		$this->data['title'] = 'Informasi Dokumen';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Edit Informasi Dokumen',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('indok/tambah_indok');
+		$this->load->view('component/footer');
+	}
+
+	public function editIndok($id)
+	{
+		$this->form_validation->set_rules('no', 'no', 'required');
+		$this->form_validation->set_rules('judul', 'judul', 'required');
+		$this->form_validation->set_rules('isi', 'isi', 'required');
+		if ($this->form_validation->run() === FALSE) {
+			$data['indok_csirt'] = $this->indok_model->detail_indok();
+			$data['detail'] = $this->indok_model->detail_indok($id);
+			$data = array(
+				'indok_csirt' => $this->indok_model->detail_indok(),
+				'detail' => $this->indok_model->detail_indok($id)
+			);
+
+			// Kalau tidak ada error indok diupdate
+		} else {
+			$data = array(
+
+				'id_indok' => $id,
+				'no' => $this->input->post('no'),
+				'judul' => $this->input->post('judul'),
+				'isi' => $this->input->post('isi'),
+			);
+			$this->indok_model->edit_indok($data);
+			redirect(base_url() . 'content/indok/');
+		}
+		$this->data['title'] = 'Informasi Dokumen';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Edit Informasi Dokumen',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('indok/edit_indok', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function deleteIndok($id)
+	{
+		$this->indok_model->delete_indok($id);
+		redirect(base_url() . 'content/indok/');
+	}
+
+
+	public function informasi()
+	{
+		$query = $this->kontak_model->daftar_kontak();
+		$data = array('kontak' => $query);
+		$this->data['title'] = 'Informasi Kontak';
+
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Pengaturan Informasi Kontak',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('admin/kontak/kontak_view', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function tambahInfo()
+	{
+		$this->form_validation->set_rules('no', 'no', 'required');
+		$this->form_validation->set_rules('icon', 'Icon', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('status', 'Status', 'required');
+		$this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
+		if ($this->form_validation->run() === FALSE) {
+		} else {
+			$data = array(
+				'no' => $this->input->post('no'),
+				'icon' => $this->input->post('icon'),
+				'nama' => $this->input->post('nama'),
+				'status' => $this->input->post('status'),
+				'jabatan' => $this->input->post('jabatan')
+			);
+			$this->kontak_model->tambah($data);
+			redirect(base_url() . 'content/informasi');
+		}
+		$this->data['title'] = 'Informasi Kontak';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Edit Informasi Kontak',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('admin./kontak/tambah_kontak');
+		$this->load->view('component/footer');
+	}
+
+	public function editInfo($id)
+	{
+		$this->form_validation->set_rules('icon', 'Icon', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('status', 'Status', 'required');
+		$this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
+		if ($this->form_validation->run() === FALSE) {
+			$data['kontak_csirt'] = $this->kontak_model->detail_kontak();
+			$data['detail'] = $this->kontak_model->detail_kontak($id);
+			$data = array(
+				'kontak_csirt' => $this->kontak_model->detail_kontak(),
+				'detail' => $this->kontak_model->detail_kontak($id)
+			);
+			// Kalau tidak ada error kontak diupdate
+		} else {
+			$data = array(
+				'id_kontak' => $id,
+				'icon' => $this->input->post('icon'),
+				'nama' => $this->input->post('nama'),
+				'status' => $this->input->post('status'),
+				'jabatan' => $this->input->post('jabatan')
+			);
+			$this->kontak_model->edit_kontak($data);
+			redirect(base_url() . 'content/informasi');
+		}
+		$this->data['title'] = 'Informasi Kontak';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Edit Informasi Kontak',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('admin/kontak/edit_kontak', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function deleteInfo($id)
+	{
+		$this->kontak_model->delete_kontak($id);
+		redirect(base_url() . 'content/informasi');
+	}
+	public function buletin()
+	{
+		$query = $this->buletin_model->buletin();
+		$data = array('buletin' => $query);
+		$this->data['title'] = 'Berita';
+
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Berita',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('buletin/buletin_view', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function tambahBuletin()
+	{
+		$this->form_validation->set_rules('judul', 'judul', 'required');
+		$this->form_validation->set_rules('ringkasan', 'ringkasan');
+		if ($this->form_validation->run() === FALSE) {
+		} else {
+
+			$this->load->library('upload');
+			$upload_image = $_FILES['image']['name'];
+			$path = './assets/images/berita/';
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+			}
+
+			if ($upload_image) {
+				$config['allowed_types'] = 'gif|jpg|png|jpeg|';
+				$config['max_size'] = '1500';
+				$config['upload_path'] = $path;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('image')) {
+					$new_image = $this->upload->data('file_name');
+					// $this->db->set('image', $new_image);
+				} else {
+					echo $this->upload->display_errors();
+				}
+			}
+			$data = array(
+				'judul' => $this->input->post('judul'),
+				'ringkasan' => $this->input->post('ringkasan'),
+				'image' => $new_image
+			);
+			$this->buletin_model->tambah($data);
+			redirect(base_url() . 'content/berita/');
+		}
+		$this->data['title'] = 'Dokumen Legal Pendukung';
+
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Tambah Buletin',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('buletin/tambah_buletin');
+		$this->load->view('component/footer');
+	}
+
+	public function editBuletin($id)
+	{
+		$this->form_validation->set_rules('judul', 'judul', 'required');
+		$this->form_validation->set_rules('ringkasan', 'ringkasan');
+		if ($this->form_validation->run() === FALSE) {
+			$data['buletin_csirt'] = $this->buletin_model->detail_buletin();
+			$data['detail'] = $this->buletin_model->detail_buletin($id);
+			$data = array(
+				'buletin_csirt' => $this->buletin_model->detail_buletin(),
+				'detail' => $this->buletin_model->detail_buletin($id)
+			);
+			// Kalau tidak ada error buletin diupdate
+		} else {
+			$this->load->library('upload');
+			$upload_image = $_FILES['image']['name'];
+			$path = './assets/images/berita/';
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+			}
+
+			if ($upload_image) {
+				$config['allowed_types'] = 'gif|jpg|png|jpeg|';
+				$config['max_size'] = '1500';
+				$config['upload_path'] = $path;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('image')) {
+					$new_image = $this->upload->data('file_name');
+					// $this->db->set('image', $new_image);
+				} else {
+					echo $this->upload->display_errors();
+				}
+			}
+
+			$data = array(
+				'id_brt' => $id,
+				'judul' => $this->input->post('judul'),
+				'ringkasan' => $this->input->post('ringkasan'),
+				'image' => $new_image
+
+			);
+
+			$this->buletin_model->edit_buletin($data);
+			redirect(base_url() . 'content/berita/');
+		}
+		$this->data['title'] = 'Buletin';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Edit Buletin',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('buletin/edit_buletin', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function deleteBuletin($id)
+	{
+		$this->buletin_model->delete_buletin($id);
+		redirect(base_url() . 'content/berita/');
+	}
+
+	public function dokpen()
+	{
+		$query = $this->dokpen_model->daftar_dokpen();
+		$data = array('dokpen' => $query);
+		$this->data['title'] = 'Dokumen Legal Pendukung';
+
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Dokumen Legal Pendukung',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('admin/dokpen/dokpen_view', $data);
+		$this->load->view('component/footer');
+	}
+
+	public function tambahDokpen()
+	{
+		$this->form_validation->set_rules('judul', 'judul', 'required');
+		if ($this->form_validation->run() === FALSE) {
+		} else {
+			$this->load->library('upload');
+			$upload_file = $_FILES['isi']['name'];
+			$path = './assets/dokpen/';
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+			}
+
+			if ($upload_file) {
+				$config['allowed_types'] = 'pdf|docx|xls|ppt';
+				$config['upload_path'] = $path;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('isi')) {
+					$new_file = $this->upload->data('file_name');
+					// $this->db->set('image', $new_image);
+				} else {
+					echo $this->upload->display_errors();
+				}
+			}
+			$data = array(
+				'judul' => $this->input->post('judul'),
+				'isi' => $new_file
+			);
+			$this->dokpen_model->tambah($data);
+			redirect(base_url() . 'content/dokpen/');
+		}
+		$this->data['title'] = 'Dokumen Legal Pendukung';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Tambah Dokpen',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('admin/dokpen/tambah_dokpen');
+		$this->load->view('component/footer');
+	}
+
+	public function editDokpen($id)
+	{
+		$this->form_validation->set_rules('judul', 'judul', 'required');
+		if ($this->form_validation->run() === FALSE) {
+			$data['dokpen_csirt'] = $this->dokpen_model->detail_dokpen();
+			$data['detail'] = $this->dokpen_model->detail_dokpen($id);
+			$data = array(
+				'dokpen_csirt' => $this->dokpen_model->detail_dokpen(),
+				'detail' => $this->dokpen_model->detail_dokpen($id)
+			);
+			// Kalau tidak ada error dokpen diupdate
+		} else {
+			$this->load->library('upload');
+			$upload_file = $_FILES['isi']['name'];
+			$path = './assets/dokpen/';
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+			}
+
+			if ($upload_file) {
+				$config['allowed_types'] = 'pdf|docx|xls|ppt';
+				$config['upload_path'] = $path;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('isi')) {
+					$new_file = $this->upload->data('file_name');
+					// $this->db->set('image', $new_image);
+				} else {
+					echo $this->upload->display_errors();
+				}
+			}
+			$data = array(
+				'id_dokpen' => $id,
+				'judul' => $this->input->post('judul'),
+				'isi' => $new_file
+			);
+			$this->dokpen_model->edit_dokpen($data);
+			redirect(base_url() . 'content/dokpen/');
+		}
+		$this->data['title'] = 'Informasi Dokpen';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Edit Dokpen',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('admin/dokpen/edit_dokpen', $data);
+		$this->load->view('component/footer');
+	}
+
+
+	public function deleteDokpen($id)
+	{
+		$this->dokpen_model->delete_dokpen($id);
+		redirect(base_url() . 'content/dokpen/');
+	}
+
+	public function profil()
+	{
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('name', 'Nama Lengkap', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('gender', 'gender', 'required');
+		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
+		$this->form_validation->set_rules('alamat', 'alamat', 'required');
+		if ($this->form_validation->run() === FALSE) {
+
+			$profile = $this->tank_auth->get_user_profile($this->data['user_id']);
+			$data = array(
+				'nama_lengkap' => $profile['name'],
+				'username' => $this->tank_auth->get_username(),
+				'email' => $this->tank_auth->get_email(),
+				'gender' => $profile['gender'],
+				'alamat' => $profile['alamat'],
+				'tanggal_lahir' => $profile['tanggal_lahir'],
+			);
+		} else {
+			$this->load->library('upload');
+			$upload_image = $_FILES['foto']['name'];
+			$path = './assets/media/profiles/';
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+			}
+
+			if ($upload_image) {
+				$config['allowed_types'] = 'gif|jpg|png|jpeg|';
+				$config['max_size'] = '1500';
+				$config['upload_path'] = $path;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('foto')) {
+					$new_image = $this->upload->data('file_name');
+					// $this->db->set('image', $new_image);
+				} else {
+					echo $this->upload->display_errors();
+				}
+			}
+
+			$data = array(
+				'username' => $this->input->post('Username'),
+				'name' => $this->input->post('nama_lengkap'),
+				'email' => $this->input->post('Email'),
+				'gender' => $this->input->post('gender'),
+				'alamat' => $this->input->post('alamat'),
+				'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+				'foto' => $new_image
+			);
+			redirect(base_url() . 'dashboard/profil/');
+		}
+		$this->data['title'] = 'Profil Saya';
+		$this->data['breadcrumbs'][] = [
+			'active' => FALSE,
+			'text' => 'Profil Saya',
+			'class' => 'breadcrumb-item pe-3 text-gray-400',
+			'href' => site_url('Dashboard')
+		];
+
+		$this->load->view('component/header', $this->data);
+		$this->load->view('component/sidebar', $this->data);
+		$this->load->view('profil', $data);
+		$this->load->view('component/footer');
+	}
+}

@@ -1,0 +1,207 @@
+<?php
+$login = array(
+	'name' => 'login',
+	'id' => 'user',
+	'value' => set_value('login'),
+	'placeholder' => 'Email',
+	'class' => 'form-control',
+	'autocomplete' => 'off'
+);
+if ($login_by_username and $login_by_email) {
+	$login_label = 'Email or username';
+} else if ($login_by_username) {
+	$login_label = 'Login';
+} else {
+	$login_label = 'Email';
+}
+$password = array(
+	'name' => 'password',
+	'id' => 'pass',
+	'data-type' => 'password',
+	'value' => set_value('password'),
+	'class' => 'form-control',
+	'placeholder' => 'Password',
+	'autocomplete' => 'off'
+);
+$remember = array(
+	'name' => 'remember',
+	'id' => 'monthly',
+	'class' => 'form-check-input',
+	'value' => 1,
+	'checked' => set_value('remember'),
+	'autocomplete' => 'off',
+	'style' => 'display: block !important;'
+);
+$captcha = array(
+	'name' => 'captcha',
+	'id' => 'captcha',
+	'class' => 'form-control',
+	'placeholder' => 'Captcha',
+	'autocomplete' => 'off'
+);
+$label_captcha = "Confirmation Code";
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>CSIRT-INTI</title>
+
+	<meta name="description" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+	<meta property="og:url" content="https://my.inti.co.id/reseller/" />
+	<meta property="og:site_name" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/ini-inti1.png" />
+	<!--begin::Fonts-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+	<!--end::Fonts-->
+	<!--begin::Page Vendor Stylesheets(used by this page)-->
+	<link href="<?php echo base_url(); ?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Page Vendor Stylesheets-->
+	<!--begin::Global Stylesheets Bundle(used by all pages)-->
+	<link href="<?php echo base_url(); ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url(); ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Global Stylesheets Bundle-->
+
+	<!--end::Main-->
+	<script>
+		var hostUrl = "<?php echo base_url(); ?>assets/";
+	</script>
+	<!--begin::Javascript-->
+	<!--begin::Global Javascript Bundle(used by all pages)-->
+	<script src="<?php echo base_url(); ?>assets/plugins/global/plugins.bundle.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/scripts.bundle.js"></script>
+	<!--end::Global Javascript Bundle-->
+	<!--begin::Page Vendors Javascript(used by this page)-->
+	<script src="<?php echo base_url(); ?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+	<!--end::Page Vendors Javascript-->
+	<!--begin::Page Custom Javascript(used by this page)-->
+	<script src="<?php echo base_url(); ?>assets/js/custom/widgets.js"></script>
+	<!--end::Page Custom Javascript-->
+	<!--end::Javascript-->
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+	<style>
+		body {
+			background-color: white;
+		}
+
+		h1 {
+			color: white;
+			font-size: 65px;
+		}
+
+		h4 {
+			color: white;
+			font-size: 25px;
+			margin-left: 220px;
+		}
+
+		.row {
+			width: 100%;
+			height: 100%;
+		}
+
+		.isi {
+			margin-top: 70px;
+		}
+	</style>
+
+</head>
+
+
+<body id="kt_body" class="page-auth">
+	<!--begin::Main-->
+	<div class="row">
+		<div class="col-lg-7 col-sm-12 	d-none d-md-block" style="background-color: #150544;">
+			<div class="isi">
+				<center>
+					<img src="<?php echo base_url(); ?>assets/images/login.png" class="col-md-7 col-sm-7" alt=""><br><br><br>
+					<h1 class="col-md-6 col-sm-6">INTI-CSIRT</h1>
+				</center>
+				<h4 class="col-md-6 col-sm-6">Computer Security Incident Response Team</h4>
+			</div>
+		</div>
+		<div class="col-md-5">
+			<center>
+				<img src="<?php echo base_url(); ?>assets/images/ini-inti1.png" class="col-md-4 col-sm-4" alt="" style="margin-top: 80px;"><br><br><br>
+			</center>
+			<!--begin::Form-->
+			<div class="isi2">
+				<?php echo form_open($this->uri->uri_string(), array('class' => 'form w-100', 'novalidate' => 'novalidate', 'id' => 'kt_sign_in_form')); ?>
+				<!--begin::Heading-->
+				<!--begin::Heading-->
+				<div class="fv-row mb-3">
+					<!--begin::Label-->
+					<!--end::Label-->
+					<?php echo form_input($login, array('class' => 'form-control form-control-lg form-control-solid', 'autocomplete' => 'off')); ?>
+					<span style="color:red;">
+						<?php echo form_error($login['name']); ?>
+						<?php echo isset($errors[$login['name']]) ? $errors[$login['name']] : ''; ?>
+					</span>
+					<span class="form-bar"></span>
+				</div>
+				<div class="fv-row mb-5">
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-stack mb-2">
+						<!--begin::Label-->
+						<!--end::Label-->
+						<!--begin::Link-->
+						<!----><?php //echo anchor('/Auth/forgot_password/', 'Lupa Kata sandi ?', array('class' => 'link-primary fs-6 fw-bolder')); 
+								?>
+						<!--end::Link-->
+					</div>
+					<!--end::Wrapper-->
+					<?php echo form_password($password, array('class' => 'form-control form-control-lg form-control-solid', 'autocomplete' => 'off')); ?>
+					<span style="color:red;">
+						<?php echo form_error($password['name']); ?>
+						<?php echo isset($errors[$password['name']]) ? $errors[$password['name']] : ''; ?>
+					</span>
+					<span class="form-bar"></span>
+				</div>
+				<div class="row" style="margin-left: 5px;">
+					<div class="form-check col-md-9">
+						<?php echo form_checkbox($remember, array('class' => 'form-check-input', 'id' => 'flexCheckDefault')); ?>
+						<!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+						<label class="form-check-label" for="flexCheckDefault">
+							Remember me
+						</label>
+					</div>
+					<div class="form-group col-md-3">
+						<a class="submit" href="<?php echo base_url('auth/forgot_password') ?>" style="color: black;">
+							Forgot password?
+						</a>
+					</div>
+					<!-- <div class="form-group col-md-3">
+						<a class="submit" href="<?php echo base_url('auth/register') ?>" style="color: black;">
+							Register
+						</a>
+					</div> -->
+				</div><br>
+				<div class="text-center">
+					<!--begin::Submit button-->
+					<button type="submit" id="kt_sign_in_submit" class="form-control form-control-user" style="background-color: rgb(21, 5, 68); color:white;">
+						<span class="indicator-label">Login</span>
+						<span class="indicator-progress">Please wait...
+							<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+					</button><br>
+					<!--end::Submit button-->
+				</div>
+			</div>
+
+			<!--end::Actions-->
+			<?php echo form_close(); ?>
+		</div>
+	</div>
+</body>
+
+</html>

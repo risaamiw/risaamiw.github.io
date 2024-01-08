@@ -1,0 +1,112 @@
+<style>
+    p,
+    h3 {
+        font-family: poppins;
+        text-align: left;
+        color: white;
+        margin-left: 430px;
+        margin-top: 5px;
+    }
+
+    h1 {
+        font-family: poppins;
+        color: white;
+        margin-left: 130px;
+        margin-top: 60px;
+    }
+
+    footer {
+        height: 100px;
+        background-color: #150544;
+        color: white;
+        font-family: poppins;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+
+    @media (max-width:990px) {
+        .aduan-image {
+            left: 30%;
+        }
+
+        .aduan-content {
+            text-align: justify;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <!-- MENU BAR -->
+
+    <!-- HERO -->
+    <section class="section;">
+        <div class="container col-10" style="background-color: #150544; width:970px; height:110%; border-top-right-radius: 50px; margin-top:58px;">
+            <div class="row">
+                <div class="col-7 col-sm-4 col-lg-3" style="font-family:poppins; border-style: solid; padding: 15px; border-radius:20px; color:white; margin-top:35px; height:70px; margin-left:50px;">
+                    <h2 class="text-center">Aduan Siber</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aduan-image col-10 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                    <img class="img-fluid" src="<?php echo base_url() ?>assets/images/kebijakan.png" style="margin-left: -100px;">
+                </div>
+                <div class="aduan-content col-xs-10 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left" style="color: white; font-family:poppins; margin-bottom: 10%;">
+                    <div>
+                        <h5 style="color:white; font-family: poppins;">INTI-CSIRT Akan Membantu Konstituen Untuk Melakukan Penanggulangan Dan Pemulihan Insiden Keamanan Siber Di Lingkungan PT INTI (Persero) Dengan Aspek-Aspek Manajemen Insiden Keamanan Siber Berikut :
+                        </h5><br>
+
+                        <b style="font-size: 35px;">1.</b> <b style="font-size: 20px;">Insiden (Incident Triage)</b>
+                        <br>a. Memastikan kebenaran insiden dan pelapor
+                        <br>b. Menilai dampak dan prioritas insiden
+                        <br><br>
+
+                        <b style="font-size: 35px;">2.</b> <b style="font-size: 20px;">Koordinasi Insiden</b>
+                        <br>a. Mengkoordinasikan insiden dengan konstituen
+                        <br>b. Menentukan kemungkinan penyebab insiden
+                        <br>c. Memberikan rekomendasi penanggulangan berdasarkan panduan/SOP yang dimiliki National CSIRT kepada konstituen
+                        <br>d. Mengkoordinasikan insiden dengan CSIRT atau pihak lain yang terkait
+                        <br><br>
+
+                        <b style="font-size: 35px;">3.</b> <b style="font-size: 20px;">Resolusi Insiden</b>
+                        <br>a. Melakukan investigasi dan analisis dampak insiden
+                        <br>b. Memberikan rekomendasi teknis untuk pemulihan pasca insiden
+                        <br>c. Memberikan rekomendasi teknis untuk memperbaiki kelemahan sistem
+                        </p>
+                    </div>
+                </div>
+    </section>
+    <section class="" style="height: 180px;">
+        <div class="container">
+
+        </div>
+    </section>
+</body>
+
+</html>

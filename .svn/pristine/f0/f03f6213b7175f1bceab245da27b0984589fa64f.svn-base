@@ -1,0 +1,46 @@
+<div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <?php echo form_open() ?>
+        <div class="card-header border-0 pt-5 pb-5">
+            <h3 class="card-title fw-bolder text-gray-800 fs-2">Profil Saya</h3>
+        </div>
+        <div class="card-body pt-0">
+            <div class="mb-3 row col-4">
+                <img src="<?php echo base_url('assets/media/avatars/blank.png'); ?>" alt="">
+                <b class="text-center"><?php echo $nama_lengkap ?></b>
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end">Username : </label>
+                    <div class="col-sm-8">
+                        <input name="name" type="text" class="form-control" id="name" size="70" value="<?php echo $username ?>" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end">Email : </label>
+                    <div class="col-sm-8">
+                        <input name="email" type="text" class="form-control" id="email" size="70" value="<?php echo $email ?>" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label text-end">Jenis Kelamin : &nbsp</label>
+                    <div class="col-sm-9">
+                        <a class="float-right"><?php echo ($gender == 'P') ? 'Pria' : 'Wanita'; ?></a>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end">Tanggal Lahir : </label>
+                    <div class="col-sm-8">
+                        <input name="tanggal_lahir" type="text" class="form-control" id="tanggal_lahir" size="70" value="<?php echo $tanggal_lahir ?>" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end">Alamat : </label>
+                    <div class="col-sm-8">
+                        <textarea name="alamat" class="form-control" rows="5"><?php echo $alamat; ?></textarea readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php echo form_close() ?>
+    </div>
+</div>

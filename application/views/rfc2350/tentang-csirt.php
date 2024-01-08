@@ -1,0 +1,174 @@
+<style>
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+
+    p {
+        color: white;
+        font-family: poppins;
+        font-size: medium;
+    }
+
+    .isi {
+        color: white;
+        font-family: poppins;
+        font-size: x-large;
+    }
+
+    @media (max-width:991px) {
+        .bijak-image {
+            left: 45%;
+        }
+
+        .bijak-content {
+            text-align: justify;
+        }
+
+        .margin-title {
+            margin-left: 100px;
+        }
+    }
+
+    .margin-title {
+        margin-left: 10%;
+
+    }
+
+    .text {
+        color: white;
+        font-family: poppins;
+    }
+</style>
+
+</head>
+
+<!-- MENU BAR -->
+
+<body>
+
+
+    <section class="section">
+        <div class="container col-10 col-lg-9" style="background-color: #150544; min-height:110%; border-top-right-radius: 50px; margin-top:58px;">
+            <div class="row">
+                <div class="margin-title col-8 col-sm-4 col-lg-4" style="font-family:poppins; border-style: solid; padding: 15px; border-radius:20px; color:white; margin-top:35px; height:70px;">
+                    <h2 class="text-center">TENTANG CSIRT</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="tentang-image col-9 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                    <img class="img-fluid" src="<?php echo base_url() ?>assets/images/logo-gembok.png">
+                </div>
+                <div class="tentang-content col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left">
+                    <p class="text" style="color: white; font-family:poppins; margin-bottom: 10%; margin-right :15%;">
+                    <h5 style="color:white; font-family: poppins;">
+                        Dokumen ini berisi deskripsi INTI-CSIRT berdasarkan RFC 2350, yaitu informasi dasar mengenai INTI-CSIRT,
+                        menjelaskan tanggung jawab, layanan yang diberikan, dan cara untuk menghubungi INTI-CSIRT.
+                    </h5>
+                    <br>
+                    <div class="text">
+                        <h3>
+                            <b>1.</b> Visi
+                        </h3>
+                        Visi INTI-CSIRT adalah menjadi komponen utama untuk
+                        <br>tercapainya Visi Perusahaan dengan meningkatkan
+                        <br>ketahanan siber di sektor industri telekomunikasi.
+                        <br><br>
+                    </div>
+                    <div class="text">
+                        <h3>
+                            <b>2.</b> Misi
+                        </h3>
+                        Perwujudan visi sebagaimana dituangkan di atas akan
+                        <br>dicapai melalui upaya- upaya yang terkandung dalam
+                        <br>misi INTI-CSIRT,yaitu :
+                        <br>1. Mengkoordinasikan dan mengkolaborasikan layanan
+                        <br>keamanan siber di lingkungan Perusahaan dan
+                        <br>pemangku kepentingan.
+                        <br>2. Membangun kemampuan dan kapasitas sumber daya <br>keamanan di sektor industri BUMN.
+                        <br>3. Membangun kerjasama dalam rangka <br>penanggulangan dan pemulihan insiden keamanan siber
+                        <br>di lingkungan sektor industri BUMN.
+                        <br><br>
+                    </div>
+                    <div class="text">
+                        <h3>
+                            <b>3.</b> Konstituen
+                        </h3>
+                        Konstituen INTI-CSIRT meliputi seluruh pengguna yang
+                        <br>menggunakan layanan Data Center Perusahaan
+                        <br>Perseroan (Persero) PT Industri Telekomunikasi Indonesia,
+                        <br>meliputi karyawan dan anak perusahaan,yaitu PT. Inti
+                        <br>Konten Indonesia (INTENS) dan PT. Inti Pindad Mitra Sejati
+                        <br>(IPMS).
+                        <br><br>
+                    </div>
+                    <div class="text">
+                        <h3>
+                            <b>4.</b> Sponsorship dan/atau Afiliasi
+                        </h3>
+                        Pendanaan INTI-CSIRT bersumber dari anggaran
+                        <br>pemeliharaan infrastrukutur Teknologi Informasi
+                        <br>Perusahaan Perseroan (Persero) PT Industri
+                        <br>Telekomunikasi Indonesia yang sudah dianggarkan setiap
+                        <br>tahunnya.
+                        <br><br>
+                    </div>
+                    <div class="text">
+                        <h3>
+                            <b>5.</b> Otoritas
+                        </h3>
+                        Tim INTI-CSIRT memiliki kewenangan antara lain:
+                        <br>1. Menentukan asesmen tingkat keamanan informasi pada
+                        <br>proses bisnis yang sedang atau yang akan berlangsung;
+                        <br>2. Melakukan asesmen tingkat keamanan sistem informasi
+                        <br>yang dibuat secara sendiri (in-house),atau disewa/dibeli
+                        <br>ke pihak ketiga;
+                        <br>3. Melakukan pengawasan serta intervensi aktif terhadap
+                        <br>operasional sistem informasi dalam rangka pemenuhan
+                        <br>ketahanan dan keandalan siber yang menunjang tujuan
+                        <br>bisnis;
+                        <br>4. Merencanakan,membuat dan mengoperasikan
+                        <br>rancang bangun mekanisme pertahanan berlapis
+                        <br>siber (cyber defense-in-depth);
+                        <br>5. Melaksanakan program kesadaran keamanan siber
+                        <br>bersama stakeholder terkait;
+                        <br>6. Memiliki otoritas penuh untuk melaksanakan koordinasi
+                        <br>dan intervensi internal dan eksternal, akses terhadap data
+                        <br>dan sistem dalam hal penanganan insiden siber Anti –
+                        <br>Malware.
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="" style="height: 100px;">
+        <div class="container">
+
+        </div>
+    </section>
+
+</body>
+
+</html>

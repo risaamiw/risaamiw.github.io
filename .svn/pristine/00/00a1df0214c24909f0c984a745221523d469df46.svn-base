@@ -1,0 +1,16 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+section {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    padding-left: 0px;
+    box-sizing: border-box;
+}

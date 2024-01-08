@@ -1,0 +1,201 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Berita extends CI_Controller
+{
+
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     *        http://example.com/index.php/welcome
+     *    - or -
+     *        http://example.com/index.php/welcome/index
+     *    - or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see https://codeigniter.com/user_guide/general/urls.html
+     */
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->load->library('tank_auth');
+
+        if (!$this->tank_auth->is_logged_in()) {
+            redirect('/auth/login/');
+        } else {
+            $this->data['dataUser'] = $this->session->userdata('data_ldap');
+
+            $this->data['user_id'] = $this->tank_auth->get_user_id();
+            $this->data['username'] = $this->tank_auth->get_username();
+            $this->data['email'] = $this->tank_auth->get_email();
+
+            $profile = $this->tank_auth->get_user_profile($this->data['user_id']);
+
+            $this->data['profile_name'] = $profile['name'];
+            $this->data['profile_foto'] = $profile['foto'];
+
+            foreach ($this->tank_auth->get_roles($this->data['user_id']) as $val) {
+                $this->data['role_id'] = $val['role_id'];
+                $this->data['role'] = $val['role'];
+                $this->data['full_name_role'] = $val['full'];
+            }
+
+            $this->data['link_active'] = 'Berita';
+
+            //buat permission
+            if (!$this->tank_auth->permit($this->data['link_active'])) {
+                redirect('Home');
+            }
+
+            $this->load->model("Showmenu_model");
+            $this->data['ShowMenu'] = $this->Showmenu_model->getShowMenu();
+
+            $OpenShowMenu = $this->Showmenu_model->getOpenShowMenu($this->data);
+
+            $this->data['openMenu'] = $this->Showmenu_model->getDataOpenMenu($OpenShowMenu->id_menu_parent);
+            $this->load->model('admin/buletin_model');
+        }
+    }
+
+    public function index()
+    {
+        $query = $this->buletin_model->buletin();
+        $data = array('buletin' => $query);
+        $this->data['title'] = 'Berita';
+
+        $this->data['breadcrumbs'][] = [
+            'active' => FALSE,
+            'text' => 'Berita',
+            'class' => 'breadcrumb-item pe-3 text-gray-400',
+            'href' => site_url('Berita')
+        ];
+
+        $this->load->view('component/header', $this->data);
+        $this->load->view('component/sidebar', $this->data);
+        $this->load->view('buletin/buletin_view', $data);
+        $this->load->view('component/footer');
+    }
+
+    public function tambahBuletin()
+    {
+        $this->form_validation->set_rules('judul', 'judul', 'required');
+        $this->form_validation->set_rules('ringkasan', 'ringkasan');
+        if ($this->form_validation->run() === FALSE) {
+        } else {
+
+            $this->load->library('upload');
+            $upload_image = $_FILES['image']['name'];
+            $path = './assets/images/berita/';
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png|jpeg|';
+                $config['max_size'] = '1500';
+                $config['upload_path'] = $path;
+
+                $this->upload->initialize($config);
+
+                if ($this->upload->do_upload('image')) {
+                    $new_image = $this->upload->data('file_name');
+                    // $this->db->set('image', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+            $data = array(
+                'judul' => $this->input->post('judul'),
+                'ringkasan' => $this->input->post('ringkasan'),
+                'image' => $new_image
+            );
+            $this->buletin_model->tambah($data);
+            redirect(base_url() . 'content/berita/');
+        }
+        $this->data['title'] = 'Dokumen Legal Pendukung';
+
+        $this->data['breadcrumbs'][] = [
+            'active' => FALSE,
+            'text' => 'Tambah Buletin',
+            'class' => 'breadcrumb-item pe-3 text-gray-400',
+            'href' => site_url('Berita')
+        ];
+
+        $this->load->view('component/header', $this->data);
+        $this->load->view('component/sidebar', $this->data);
+        $this->load->view('buletin/tambah_buletin');
+        $this->load->view('component/footer');
+    }
+
+    public function editBuletin($id)
+    {
+        $this->form_validation->set_rules('judul', 'judul', 'required');
+        $this->form_validation->set_rules('ringkasan', 'ringkasan', 'required');
+        if ($this->form_validation->run() === FALSE) {
+            $data['buletin_csirt'] = $this->buletin_model->detail_buletin();
+            $data['detail'] = $this->buletin_model->detail_buletin($id);
+            $data = array(
+                'buletin_csirt' => $this->buletin_model->detail_buletin(),
+                'detail' => $this->buletin_model->detail_buletin($id)
+            );
+            // Kalau tidak ada error buletin diupdate
+        } else {
+            $this->load->library('upload');
+            $upload_image = $_FILES['image']['name'];
+            $path = './assets/images/berita/';
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png|jpeg|';
+                $config['max_size'] = '1500';
+                $config['upload_path'] = $path;
+
+                $this->upload->initialize($config);
+
+                if ($this->upload->do_upload('image')) {
+                    $new_image = $this->upload->data('file_name');
+                    // $this->db->set('image', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+
+            $data = array(
+                'id_brt' => $id,
+                'judul' => $this->input->post('judul'),
+                'ringkasan' => $this->input->post('ringkasan'),
+                'image' => $new_image
+
+            );
+
+            $this->buletin_model->edit_buletin($data);
+            redirect(base_url() . 'content/berita/');
+        }
+        $this->data['title'] = 'Buletin';
+        $this->data['breadcrumbs'][] = [
+            'active' => FALSE,
+            'text' => 'Edit Buletin',
+            'class' => 'breadcrumb-item pe-3 text-gray-400',
+            'href' => site_url('Berita')
+        ];
+
+        $this->load->view('component/header', $this->data);
+        $this->load->view('component/sidebar', $this->data);
+        $this->load->view('buletin/edit_buletin', $data);
+        $this->load->view('component/footer');
+    }
+
+    public function deleteBuletin($id)
+    {
+        $this->buletin_model->delete_buletin($id);
+        redirect(base_url() . 'content/berita/');
+    }
+}

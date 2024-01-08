@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>INTI CSIRT</title>
+
+    <meta name="description" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+    <meta property="og:url" content="https://my.inti.co.id/reseller/" />
+    <meta property="og:site_name" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/ini-inti.png" />
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/aos.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/owl.theme.default.min.css">
+
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets\css\style.css">
+
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- MAIN CSS
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/templatemo-digital-trend.css"> -->
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/aos.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/smoothscroll.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/custom.js"></script>
+
+    <style>
+        .carousel-inner {
+            border-radius: 20px;
+        }
+
+        .carousel-item {
+            margin-top: 50px;
+        }
+
+        .carousel-item img {
+            left: 0;
+            min-width: 100%;
+            height: 474px;
+            border-radius: 50px;
+        }
+
+        .left {
+            min-width: 30%;
+            height: 50%;
+            position: absolute;
+            top: 35%;
+            left: -2%;
+            background-color: #150544;
+            border-radius: 20px;
+            z-index: 9;
+        }
+
+        @media (max-width:991px) {
+            .bijak-img {
+                left: 40%;
+            }
+
+            .bijak-content {
+                left: 10%;
+                text-align: justify;
+            }
+        }
+    </style>
+
+</head>
+
+<!-- MENU BAR -->
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="padding: 15px; margin-top: -10px; margin-left:100px;">
+            <img src="<?php echo base_url() ?>assets/images/ini-inti1.png" class="profil-image" alt="logo umprop inti" width="75">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="<?php echo site_url('Home'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo site_url('Content/profil'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo site_url('Content/layanan'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Layanan INTI-CSIRT</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        RFC 2350
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="<?php echo site_url('Content/indok/'); ?>">Informasi Dokumen</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('Content/informasi/'); ?>">Informasi Kontak</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('Content/tentang/'); ?>">Tentang INTI-CSIRT</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('Content/kebijakan/'); ?>">Kebijakan</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('Content/dokpen/'); ?>">Dokumen Legal Pendukung</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('Content/alper/'); ?>">Alamat Pelaporan</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo site_url('Content/siber'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Aduan Siber</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo site_url('Content/hubungi'); ?>" class="nav-link" style="color: black;">Hubungi Kami</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="section">
+    <div class="container col-10" style="background-color: #150544; width:970px; height:900px; border-top-right-radius: 50px; margin-right:125px; margin-top:58px;">
+        <div class="row">
+            <h1 class="text-center" style="border-style: solid; padding: 15px; border-radius:20px; color:white; margin-left: 20%; margin-top:35px; height:70px;">Kebijakan</h1>
+        </div>
+        <div class="row">
+            <div class="bijak-img col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                <img src="<?php echo base_url(); ?>assets/images/kebijakan.png" style="width:400px; ">
+            </div>
+            <div class="bijak-content col-xs-10 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left">
+                <p style="color: white; font-family:poppins;  margin-top:-430px;">
+                <h4 style="color:white; font-family: poppins; margin-top:100px;">INTI-CSIRT Akan Membantu Konstituen Untuk Melakukan Penanggulangan Dan Pemulihan Insiden Keamanan Siber Di Lingkungan PT INTI (Persero) Dengan Aspek-Aspek Manajemen Insiden Keamanan Siber Berikut :
+                </h4><br>
+                <h3 style="color:white; font-family: poppins; margin-top:10px;"><b style="font-size: 35px;">1.</b> Jenis-jenis Insiden dan Tingkat/Level Dukungan</h3>
+                <p style="margin-top:10px;">INTI-CSIRTmemiliki otoritas untuk menangani insiden yaitu :
+                    <br>1. Web Defacement;
+                    <br>2. DDOS;
+                    <br>3. Malware;
+                    <br>4. Phising;
+                    <br>Dukungan yang diberikan oleh INTI-CSIRT <br>kepada konstituen dapat bervariasi bergantung <br>dari jenis dan dampak insiden.
+                </p>
+                <h3 style="color:white; font-family: poppins; margin-top:10px;"><b style="font-size: 35px;">2.</b> Kerja sama, Interaksi dan Pengungkapan Informasi/data</h3>
+                <p style="margin-top:10px;">INTI-CSIRT akan melakukan kerjasama dan <br>berbagi informasi dengan CSIRT atau organisasi <br>lainnya dalam lingkup keamanan siber. Seluruh <br>informasi yang diterima oleh INTI-CSIRT akan <br>dirahasiakan.</p>
+                <h3 style="color:white; font-family: poppins; margin-top:10px;"><b style="font-size: 35px;">3.</b> Komunikasi dan Autentikasi</h3>
+                <p style="margin-top:10px;">Untuk komunikasi biasa INTI-CSIRT dapat <br>menggunakan alamat e-mail tanpa enkripsi data <br>(e-mail konvensional) dan telepon. Namun, untuk <br>komunikasi yang memuat informasi sensitif/terbatas/<br>rahasia dapat menggunakan enkripsi PGP pada e-mail.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer style="background:#150544; padding:10px; text-align:center; height:100px;">
+    <p style="margin-top: 28px; color:white; font-family:poppins;">Copyright &copy; 2022 INTI-CSIRT</p>
+</footer>
+</body>
+
+</html>

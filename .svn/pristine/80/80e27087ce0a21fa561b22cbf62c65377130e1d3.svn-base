@@ -1,0 +1,105 @@
+<style>
+    h2 {
+        font-family: poppins;
+        text-align: left;
+        color: white;
+        margin-left: 380px;
+        margin-top: 0px;
+    }
+
+    h4 {
+        font-family: poppins;
+        text-align: left;
+        color: white;
+        margin-left: 380px;
+        margin-top: 0px;
+    }
+
+    p {
+        font-family: poppins;
+        text-align: left;
+        color: white;
+        margin-left: 400px;
+        margin-top: 0px;
+    }
+
+    footer {
+        height: 100px;
+        background-color: #150544;
+        color: white;
+        font-family: poppins;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    b {
+        margin-left: 0px;
+    }
+
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+</style>
+</head>
+
+<!-- MENU BAR -->
+
+
+<!-- HERO -->
+<section class="" style="width:100%; height: 1900px;">
+    <div class="container" style="background-color: #150544; width:970px; height:1700px; border-top-right-radius: 50px; margin-right:125px; margin-top:58px;">
+        <h2 style="border-style: solid; width:36%; padding: 20px; border-radius:20px; color:white; margin-left:100px; margin-top:35px;">Tentang INTI-CSIRT</h2>
+        <p style=" color: white; font-family:poppins; margin: right 50%; margin-left:420px; margin-top:70px;"><img src="<?php echo base_url(); ?>assets/images/logo-gembok.png" style="width:400px; margin-left: -530px; margin-top:-90px;">
+        </p>
+        <p style="color: white; font-family:poppins; margin: right 50%; margin-left:400px; margin-top:-340px;">
+        <h3 style="color:white; font-family: poppins; margin-left:380px; margin-top:-90px;">Dokumen ini berisi deskripsi INTI-CSIRT berdasarkan RFC 2350, yaitu informasi dasar mengenai INTI-CSIRT, menjelaskan tanggung jawab, layanan yang diberikan, dan cara untuk menghubungi INTI-CSIRT.</h3><br>
+        </p>
+        <h2><b style="font-size: 40px;">1.</b> Visi</h2>
+        <p>Visi INTI-CSIRT adalah menjadi komponen utama untuk <br>tercapainya Visi Perusahaan dengan meningkatkan <br>ketahanan siber di sektor industri telekomunikasi.</p><br>
+        <h2><b style="font-size: 40px;">2.</b> Misi</h2>
+        <p>Perwujudan visi sebagaimana dituangkan di atas akan <br>dicapai melalui upaya- upaya yang terkandung dalam <br>misi INTI-CSIRT,
+            yaitu : <br>1. Mengkoordinasikan dan mengkolaborasikan layanan <br>keamanan siber di lingkungan Perusahaan dan <br>pemangku kepentingan. <br>2. Membangun kemampuan dan kapasitas sumber daya <br>keamanan di sektor industri BUMN. <br>3. Membangun kerjasama dalam rangka <br>penanggulangan dan pemulihan insiden keamanan siber <br>di lingkungan sektor industri BUMN.</p><br>
+        <h2><b style="font-size: 40px;">3.</b> Konstituen</h2>
+        <p>Konstituen INTI-CSIRT meliputi seluruh pengguna yang <br>menggunakan layanan Data Center Perusahaan <br>Perseroan (Persero) PT Industri Telekomunikasi Indonesia,<br>meliputi karyawan dan anak perusahaan,yaitu PT. Inti <br>Konten Indonesia (INTENS) dan PT. Inti Pindad Mitra Sejati <br>(IPMS).</p><br>
+        <h2><b style="font-size: 40px;">4.</b> Sponsorship dan/atau Afiliasi</h2>
+        <p>Pendanaan INTI-CSIRT bersumber dari anggaran <br>pemeliharaan infrastrukutur Teknologi Informasi <br>Perusahaan Perseroan (Persero) PT Industri <br>Telekomunikasi Indonesia yang sudah dianggarkan setiap <br>tahunnya.</p>
+        <h2><b style="font-size: 40px;">5.</b> Otoritas</h2>
+        <p>Tim INTI-CSIRT memiliki kewenangan antara lain:
+            <br>1. Menentukan asesmen tingkat keamanan informasi pada <br>proses bisnis yang sedang atau yang akan berlangsung;
+            <br>2. Melakukan asesmen tingkat keamanan sistem informasi <br>yang dibuat secara sendiri (in-house),
+            atau disewa/dibeli <br>ke pihak ketiga;
+            <br>3. Melakukan pengawasan serta intervensi aktif terhadap <br>operasional sistem informasi dalam rangka pemenuhan <br>ketahanan dan keandalan siber yang menunjang tujuan <br>bisnis;
+            <br>4. Merencanakan,membuat dan mengoperasikan <br>rancang bangun mekanisme pertahanan berlapis <br>siber (cyber defense-in-depth);
+            <br>5. Melaksanakan program kesadaran keamanan siber <br>bersama stakeholder terkait;
+            <br>6. Memiliki otoritas penuh untuk melaksanakan koordinasi <br>dan intervensi internal dan eksternal,
+            akses terhadap data <br>dan sistem dalam hal penanganan insiden siber Anti – <br>Malware.
+        </p>
+    </div>
+</section>
+
+
+</body>
+
+</html>

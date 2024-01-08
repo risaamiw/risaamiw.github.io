@@ -1,0 +1,99 @@
+<style>
+    .container {
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+</style>
+</head>
+
+<!-- MENU BAR -->
+
+
+<!-- HERO -->
+<section class="rounded-4 konten" style="background-color: #150544; height:2200px; width:970px; border-top-right-radius: 50px; margin-left:254px; margin-top:58px;">
+    <div class="container" style="width: 100%;">
+        <h2 class="h2" style="color:white; font-family: poppins; border-style: solid; width:27%; padding: 20px; border-radius:20px; color:white; margin-left:100px; margin-top:35px;">LAYANAN INTI</h2>
+        <br><br><img src="<?php echo base_url(); ?>assets/images/layanan1.png" style="width:400px; margin-left: -63px; margin-top:-90px;">
+        <h3 class="h3a" style="color:white; font-family: poppins; margin-left:400px; margin-top: -250px;"><b style="font-size: 40px;">1.</b><b> Pemberian Peringatan Terkait Keamanan Siber
+            </b></h3>
+        <p class="p1" style="color:white; font-family: poppins; margin-left:400px;">
+            Layanan ini dilaksanakan oleh INTI-CSIRT berupa pemberian peringatan adanya insiden siber kepada konstituen.
+        <p><br><br>
+
+            <img src="<?php echo base_url(); ?>assets/images/contact.png" style="width:400px; margin-left: 550px; margin-top: 40px;">
+        <h3 class="h3b" style="color:white; font-family: poppins; margin-top: -250px;">
+            <b style=" font-size:40px ;">2.</b><b> Penanganan Insiden Siber</b>
+        </h3>
+        <p class="p2" style="color:white; font-family: poppins;">
+            Layanan ini diberikan berupa kegiatan menerima,<br> menanggapi, dan menganalisis Insiden Siber
+        </p><br><br>
+
+        <img src="<?php echo base_url(); ?>assets/images/layanan3.png" style="width:400px; margin-left: -63px; margin-top:50px;">
+        <h3 class="h3c" style="color:white; font-family: poppins; margin-left:450px; margin-top:-300px ;">
+            <b style="font-size:40px;">3.</b><b> Penanganan Kerawanan Sistem Elektronik</b>
+        </h3>
+        <p class="p3" style="color:white; font-family: poppins; margin-left:450px;">
+            Layanan ini berupa koordinasi, analisis dan rekomendasi teknis dalam rangka penguatan aspek kendali keamanan (security control) baik dalam lingkup teknis ataupun non-teknis (Policy/Governance). Secara umum penanganan ini dibagi menjadi :
+            <br>1. Pelaporan kerawanan yang bersifat sewaktu oleh pemilik/penyelenggara sistem elektronik milik konstituen.
+            <br>2. Layanan penanganan kerawanan sebagai tindak lanjut dari kegiatan audit atau vulnerability assessment.
+        </p><br><br>
+
+        <img src="<?php echo base_url(); ?>assets/images/layanan4.png" style="width:400px; margin-left: 550px; margin-top: -50px;">
+        <h3 class="h3d" style="color:white; font-family: poppins; margin-top:-300px;">
+            <b style="font-size:40px;">4.</b><b> Pemberitahuan Hasil Pengamatan<br> Potensi Ancaman</b>
+        </h3>
+        <p class="p4" style="color:white; font-family: poppins;">
+            Layanan ini diberikan berupa penyampaian kepada<br> konstituen terkait ancaman terhadap Sistem Elektronik<br> yang dapat muncul akibat perkembangan teknologi,<br> politik, ekonomi, dan perkembangan lainnya.
+        </p><br><br>
+
+        <img src="<?php echo base_url(); ?>assets/images/layanan5.png" style="width:400px; margin-left: 0px; margin-top: 50px;">
+        <h3 style="color:white; font-family: poppins; margin-left:450px; margin-top: -250px;">
+            <b style="font-size:40px;">5.</b><b> Pendeteksian Serangan
+            </b>
+        </h3>
+        <p style="color:white; font-family: poppins; margin-left:450px;">
+            Tim INTI-CSIRT memiliki beberapa sistem untuk mendeteksi apakah sistem pada perusahaan yang bersangkutan dengan stakeholder aman atau memiliki risiko, sehingga dapat dilakukan penanggulangan sedini mungkin.
+        </p><br><br>
+
+        <img src="<?php echo base_url(); ?>assets/images/layanan6.png" style="width:400px; margin-left: 550px; margin-top: 25px;">
+        <h3 style="color:white; font-family: poppins; margin-top: -250px;">
+            <b style="font-size:40px;">6.</b><b> Pembangunan Kesadaran dan <br>Kepedulian Terhadap Keamanan Siber
+            </b>
+        </h3>
+        <p style="color:white; font-family: poppins;">
+            Tim INTI-CSIRT melakukan webinar mengenai isu <br>sistem keamanan informasi.
+        </p>
+    </div>
+</section>
+<section class="" style="background-color: white; height:200px;">
+</section>
+
+</body>
+
+</html>

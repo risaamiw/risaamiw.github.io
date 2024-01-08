@@ -1,0 +1,203 @@
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+
+    .center {
+        min-width: 28%;
+        height: 20%;
+        position: absolute;
+        top: 75%;
+        left: 40px;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        z-index: 9;
+
+    }
+
+    .center2 {
+        min-width: 28%;
+        height: 20%;
+        position: absolute;
+        top: 75%;
+        left: 413px;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        z-index: 9;
+
+    }
+
+    .center3 {
+        min-width: 28%;
+        height: 20%;
+        position: absolute;
+        top: 75%;
+        left: 788px;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        z-index: 9;
+
+    }
+
+    .isi {
+        height: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: poppins;
+    }
+
+    .card {
+        margin: 10px;
+        height: 250px;
+        border-top: 0px;
+        box-shadow: 0 2px 2px 0px;
+        margin-top: 0px;
+        width: 25rem;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    .btn {
+        border-radius: 5px 5px 5px 5px;
+        background-color: white;
+        border: none;
+        color: black;
+    }
+
+    .atas {
+        background-color: #150544;
+        height: 140px;
+        width: 235px;
+        border-radius: 15px;
+        margin-top: 2905px;
+        z-index: 15;
+        top: 75%;
+        position: absolute;
+        margin-left: 80px;
+    }
+
+    .bawah {
+        background-color: #150544;
+        height: 160px;
+        width: 140px;
+        border-radius: 15px;
+        margin-top: 2545px;
+        z-index: 15;
+        top: 75%;
+        position: absolute;
+        margin-left: 450px;
+    }
+
+    @media (max-width:991px) {
+
+
+        .profil-content {
+            text-align: justify;
+        }
+
+
+    }
+
+
+
+
+    /* css cuman buat biar ke tengah ajaa */
+</style>
+
+</head>
+
+<body>
+
+    <section class="section" style="min-height: 1200px; word-break:break-all">
+        <div class="container col 10">
+            <h2 style="font-family:poppins; margin-top:60px; text-align:center; "><?php echo $buletin['judul']; ?></h2>
+            <img src="<?php echo base_url('assets/images/berita/') . $buletin['image']; ?>" style="width:45%; margin-top:60px; margin-left:26%;">
+
+            <p style="font-family:poppins; margin-top:80px; font-size:medium;"><b>ISI BERITA</b></p>
+            <?php echo $buletin['ringkasan']; ?>
+
+            <!-- <ol class="ol1">
+                <li style="font-family:poppins; margin-top:20px;">Pada tanggal 9 Desember 2021, periset keamanan menemukan adanya kerentanan zeroday yang diberi nama CVE-2021-44228 pada<br>pustaka Apache Java Logging Library atau yang umum dikenal dengan log4j</li>
+                <li style="font-family:poppins;">Adapun versi dari Log4j yang terdampak oleh kerentanan ini adalah sistem elektronik yang menggunakan Apache Log4j antara versi 2.0 sampai dengan 2.14.1. Berdasarkan CVSS Score 3.0, nilai kerentanan ini memiliki nilai 10.0 atau dikategorikan sebagai KRITIKAL. Eksploitasi dari kerentanan ini memungkinkan penyerang dapat mengambil alih penuh server yang terdampak.</li>
+                <li style="font-family:poppins;">Seluruh pengguna yang menggunakan versi yang terdampak direkomendasikan untuk melakukan pemutakhiran ke versi terbaru atau melakukan langkah mitigasi sebagaimana direkomendasikan pada dokumen ini.</li>
+            </ol>
+
+            <p style="font-family:poppins; margin-top:50px;  font-size:medium"><b>PENDAHULUAN</b></p>
+
+            <P style="font-family:poppins;   margin-top:20px;">Pada tanggal 9 Desember 2021, periset keamanan menemukan adanya kerentanan zero-day yang diberi nama CVE-2021-44228 pada pustaka Apache
+                Java Logging Library atau yang umum dikenal dengan log4j. Proof of Concept (PoC) exploit dari kerentanan tersebut juga telah tersedia secara bebas.
+                Eksploitasi dari kerentanan ini memungkinkan penyerang dapat mengambil alih penuh server yang terdampak.</P>
+
+            <p style="font-family:poppins; margin-top:50px;  font-size:medium"><b>KERENTANAN</b></p>
+
+            <P style="font-family:poppins;   margin-top:20px;">Berdasarkan CVSS Score 3.0, nilai kerentanan ini memiliki nilai : 10.0 atau dikategorikan sebagai <b>KRITIKAL</b>.</P>
+            <center>
+                <img src="<?php echo base_url() ?>assets/images/isi1.png" style="width:80%; margin-top:60px; ">
+            </center>
+            <p style="font-family:poppins; margin-top:80px;  font-size:medium"><b>VERSI YANG TERDAMPAK</b></p>
+            <p style="font-family:poppins;   margin-top:20px;">Adapun versi dari Log4j yang terdampak oleh kerentanan ini adalah sistem elektronik yang menggunakan Apache Log4j antara versi 2.0 sampai dengan 2.14.1. Hal ini berpotensi pula terdampak pada aplikasi dan layanan yang dikembangkan dengan bahasa pemrograman Java yang menggunakan pustaka ini.</p>
+
+            <p style="font-family:poppins; margin-top:50px; font-size:medium"><b>PANDUAN MITIGASI KERENTANAN</b></p>
+
+            <ol class="ol1">
+                <li style="font-family:poppins; margin-top:20px;">Jika versi Apache log4j yang digunakan sebelum versi 2.10, direkomendasikan untuk memutakhirkan Apache log4j yang digunakan ke versi log4j-2.15.0 atau terbaru.</li>
+                <li style="font-family:poppins;">Langkah mitigasi yang dapat dilakukan terkait dengan hal ini apabila sistem elektronik yang digunakan merupakan versi 2.10 atau terbaru yakni: Mengkonfigurasi log4j2.formatMsgNoLookups menjadi true dengan menambahkan baris berikut pada JVM command untuk memulai aplikasi.<br>
+                    “-Dlog4j2.formatMsgNoLookups=True”<br>
+                    atau mengkonfigurasi nilai environment variabel<br>
+                    LOG4J_FORMAT_MSG_NO_LOOKUPS Menjadi true</li>
+                <li style="font-family:poppins;">Apabila versi Apache log4j yang digunakan mulai dari versi dari 2.0-beta9 hingga 2.10.0, langkah mtigasi yang dapat dilakukan yakni dengan JndiLookup<br>class dari classpath:<br>
+                    zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class</li>
+                <li style="font-family:poppins;">Menonaktifkan JNDI. Misalkan dengan menambahkan Spring.jndi.ignore=true yang digunakan pada spring.properties</li>
+                <li style="font-family:poppins;">Direkomendasikan untuk menggunakan JDK versi yang lebih tinggi dari 11.0.1, 8u191, 7u201, 6u211 atau yang lebih terbaru</li>
+                <li style="font-family:poppins;">Jika memungkinkan lakukan pembatasan terhadap sistem elektronik yang terdampak agar tidak dapat diakses melalui internet.</li>
+                <li style="font-family:poppins;">Lakukan langkah perlindungan lainnya dengan memutakhirkan rules deteksi pada perimeter keamanan WAF yang digunakan.</li>
+            </ol>
+
+            <p style="font-family:poppins; margin-top:50px;  font-size:medium"><b>REFERENSI</b></p>
+
+            <ol>
+                <li li style="font-family:poppins; margin-top:20px;">Flayer BSSN Peringatan Keamanan Log4J.pdf</li>
+                <li style="font-family:poppins;">Log4j RCE 0-day actively exploited. https://www.cert.govt.nz/list<br>
+                    advisories/log4j-rce-0-day-actively-exploited</li>
+                <li style="font-family:poppins;">Apache Log4j Security Vulnerabilities.<br>
+                    https://logging.apache.org/log4j/2.x/security.html</li>
+                <li style="font-family:poppins;">AusCERT Security Bulletin. https://auscert.org.au/bulletins/ASB-2021.0244.2</li>
+                <li style="font-family:poppins;">Log4Shell: RCE 0-day exploit found in log4j2, a popular Java logging package.<br>
+                    https://www.lunasec.io/docs/blog/log4j-zero-day/</li>
+                <li style="font-family:poppins;">https://csirt.kemenkeu.go.id/in/post/peringatan-keamanan-kerentanan-zero-day-pada-apache-java-logging-library-log4j</li>
+            </ol> -->
+        </div>
+    </section>
+
+</body>
+
+</html>

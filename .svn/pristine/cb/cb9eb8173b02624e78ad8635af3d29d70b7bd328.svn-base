@@ -1,0 +1,101 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Content extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct(); {
+            $this->load->model('admin/indok_model');
+            $this->load->model('admin/kontak_model');
+            $this->load->model('admin/buletin_model');
+            $this->load->model('admin/dokpen_model');
+        }
+    }
+
+    public function tentang()
+    {
+        $this->load->view('template/header');
+        $this->load->view('rfc2350/tentang-csirt');
+        $this->load->view('template/footer');
+    }
+    public function kebijakan()
+    {
+        $this->load->view('template/header');
+        $this->load->view('rfc2350/kebijakan');
+        $this->load->view('template/footer');
+    }
+    public function siber()
+    {
+        $this->load->view('template/header');
+        $this->load->view('siber/aduan_siber');
+        $this->load->view('template/footer');
+    }
+    public function indok()
+    {
+        $query = $this->indok_model->daftar_indok();
+        $data = array('indok' => $query);
+        $this->load->view('template/header');
+        $this->load->view('rfc2350/informasi-dokumen', $data);
+        $this->load->view('template/footer');
+    }
+    public function informasi()
+    {
+        $query = $this->kontak_model->daftar_kontak();
+        $data = array('kontak' => $query);
+        $this->load->view('template/header');
+        $this->load->view('rfc2350/informasi_kontak', $data);
+        $this->load->view('template/footer');
+    }
+    public function alper()
+    {
+        $this->load->view('template/header');
+        $this->load->view('rfc2350/alamat');
+        $this->load->view('template/footer');
+    }
+    public function dokpen()
+    {
+        $query = $this->dokpen_model->daftar_dokpen();
+        $data = array('dokpen' => $query);
+        $this->load->view('template/header');
+        $this->load->view('rfc2350/dokpen', $data);
+        $this->load->view('template/footer');
+    }
+    public function profil()
+    {
+        $this->load->view('template/header');
+        $this->load->view('landing/profil');
+        $this->load->view('template/footer');
+    }
+    public function layanan()
+    {
+        $this->load->view('template/header');
+        $this->load->view('landing/layanan');
+        $this->load->view('template/footer');
+    }
+    public function hubungi()
+    {
+        $this->load->view('template/header');
+        $this->load->view('landing/hubungi');
+        $this->load->view('template/footer');
+    }
+    public function buletin()
+    {
+        $query = $this->buletin_model->daftar_buletin();
+        $data = array('buletin' => $query);
+        $this->load->view('landing/buletin', $data);
+    }
+    public function berita1()
+    {
+        $this->load->view('berita/berita1');
+    }
+    public function berita2()
+    {
+        $this->load->view('template/header');
+        $this->load->view('berita/berita2');
+        $this->load->view('template/footer');
+    }
+    public function berita3()
+    {
+        $this->load->view('berita/berita3');
+    }
+}

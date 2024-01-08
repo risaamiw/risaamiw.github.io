@@ -1,0 +1,49 @@
+<!-- right column -->
+<div class="col-md-8">
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header border-0 pt-5 pb-3">
+            <h3 class="card-title fw-bolder text-gray-800 fs-2">Profil Saya</h3>
+        </div>
+        <div class="card-body pt-0">
+            <div class="mb-3 row">
+                <img src="<?php echo base_url('assets/media/avatars/blank.png/') ?>" alt="">
+                <div class="col-sm-9">
+                    <?php echo form_input($name); ?>
+                </div>
+            </div>
+            <div class="mb-3 row">
+
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label text-end">Email : </label>
+                <div class="col-sm-9">
+                    <?php echo form_input($email); ?>
+                </div>
+                <span style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']]) ? $errors[$email['name']] : ''; ?></span>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label text-end">Jenis Kelamin : &nbsp</label>
+                <div class="col-sm-9">
+                    <input type="radio" name="gender" value="P" <?php echo ($data_jenis_kelamin == 'P') ? 'checked' : ''; ?>>&nbsp Pria &nbsp
+                    <input type="radio" name="gender" value="W" <?php echo ($data_jenis_kelamin == 'W') ? 'checked' : ''; ?>>&nbsp Wanita
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label text-end">Tanggal Lahir : </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="kt_datepicker_user" name="tanggal_lahir" value="<?php echo $data_tangal_lahir; ?>" />
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label text-end">Alamat : </label>
+                <div class="col-sm-9">
+                    <textarea name="alamat" class="form-control" rows="5"><?php echo $data_alamat; ?></textarea>
+                </div>
+            </div>
+        </div>
+        <?php echo form_close() ?>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,98 @@
+<style>
+    .carousel-inner {
+        border-radius: 20px;
+    }
+
+    .carousel-item {
+        margin-top: 50px;
+    }
+
+    .carousel-item img {
+        left: 0;
+        min-width: 100%;
+        height: 474px;
+        border-radius: 50px;
+    }
+
+    .left {
+        min-width: 30%;
+        height: 50%;
+        position: absolute;
+        top: 35%;
+        left: -2%;
+        background-color: #150544;
+        border-radius: 20px;
+        z-index: 9;
+    }
+
+    p {
+        color: white;
+        font-family: poppins;
+        font-size: medium;
+    }
+
+    .isi {
+        color: white;
+        font-family: poppins;
+        font-size: x-large;
+    }
+
+    @media (max-width:991px) {
+        .bijak-image {
+            left: 45%;
+        }
+
+        .bijak-content {
+            text-align: justify;
+        }
+
+        .margin-title {
+            margin-left: 100px;
+        }
+    }
+
+    .margin-title {
+        margin-left: 10%;
+
+    }
+</style>
+
+</head>
+
+<!-- MENU BAR -->
+
+<body>
+
+
+    <section class="section">
+        <div class="container col-10 col-lg-9" style="background-color: #150544; min-height:110%; border-top-right-radius: 50px; margin-top:58px;">
+            <div class="row">
+                <div class="margin-title col-6 col-sm-4 col-lg-3" style="font-family:poppins; border-style: solid; padding: 15px; border-radius:20px; color:white; margin-top:35px; height:70px;">
+                    <h2 class="text-center">Profil</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="bijak-image col-9 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                    <img class="img-fluid" src="<?php echo base_url() ?>assets/images/logo-gembok.png">
+                </div>
+                <div class="bijak-content col-xs-9 col-sm-8 col-md-7 col-lg-5 col-xl-6 text-left">
+                    <p class="" style="color: white; font-family:poppins; margin-bottom: 10%; margin-right :15%;">Tim Tanggap Insiden Siber/Computer Security Incident Response, Team PT Industri Telekomunikasi Indonesia (INTI-CSIRT) ditetapkan oleh PT INTI (Persero) melalui
+                        Surat Keputusan Direksi No: KD.058/KP.14/020800/2022. Vice President Information Technology & Digital<br>Service ditunjuk sebagai Ketua INTI-CSIRT dan ditugaskan untuk
+                        melaksanakan perumusan, perencanaan, pembangunanan, pengoperasian, pengembangan, pengawasan, evaluasi, dan anggaran terkait INTI-CSIRT.<br><br>INTI-CSIRT melaksanakan layanan tanggap insiden siber, berupa:<br><br>
+                        Layanan reaktif, yaitu layanan yang terkait dengan kebutuhan melakukan respon terhadap insiden siber termasuk penangkalan, penindakan dan pemulihan siber.<br> <br>
+                        Layanan proaktif, yaitu layanan yang mendeteksi dan mencegah serangan siber sebelum ada dampak nyata.<br>
+                        INTI-CSIRT direncanakan akan resmi di-launching pada bulan Juli 2022 dan setiap pengguna sistem elektronik di lingkungan PT Industri Telekomunikasi Indonesia (PT INTI) dan anak perusahaannya merupakan konstituen dari INTI-CSIRT.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="" style="height: 100px;">
+        <div class="container">
+
+        </div>
+    </section>
+
+</body>
+
+</html>

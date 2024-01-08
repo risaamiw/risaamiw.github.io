@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>INTI CSIRT</title>
+
+    <meta name="description" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+    <meta property="og:url" content="https://my.inti.co.id/reseller/" />
+    <meta property="og:site_name" content="IMSIS | PT Industri Telekomunikasi Indoenesia" />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/ini-inti.png" />
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/aos.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/view-landing.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets\css\style.css">
+
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <!-- MAIN CSS
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets-landing/css/templatemo-digital-trend.css"> -->
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/aos.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/smoothscroll.js"></script>
+    <script src="<?php echo base_url() ?>assets-landing/js/custom.js"></script>
+
+
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-inner {
+            border-radius: 20px;
+        }
+
+        .carousel-item {
+            margin-top: 50px;
+        }
+
+        .carousel-item img {
+            left: 0;
+            min-width: 100%;
+            height: 474px;
+            border-radius: 50px;
+        }
+
+        .left {
+            min-width: 30%;
+            height: 50%;
+            position: absolute;
+            top: 35%;
+            left: -2%;
+            background-color: #150544;
+            border-radius: 20px;
+            z-index: 9;
+        }
+
+        .center {
+            min-width: 28%;
+            height: 20%;
+            position: absolute;
+            top: 75%;
+            left: 40px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            z-index: 9;
+
+        }
+
+        .center2 {
+            min-width: 28%;
+            height: 20%;
+            position: absolute;
+            top: 75%;
+            left: 413px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            z-index: 9;
+
+        }
+
+        .center3 {
+            min-width: 28%;
+            height: 20%;
+            position: absolute;
+            top: 75%;
+            left: 788px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            z-index: 9;
+
+        }
+
+        .isi {
+            height: 500px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: poppins;
+        }
+
+        .card {
+            margin: 10px;
+            height: 250px;
+            border-top: 0px;
+            box-shadow: 0 2px 2px 0px;
+            margin-top: 0px;
+            width: 25rem;
+            border-radius: 20px 20px 20px 20px;
+        }
+
+        .btn {
+            border-radius: 5px 5px 5px 5px;
+            background-color: white;
+            border: none;
+            color: black;
+        }
+
+        .atas {
+            background-color: #150544;
+            height: 140px;
+            width: 235px;
+            border-radius: 15px;
+            margin-top: 2905px;
+            z-index: 15;
+            top: 75%;
+            position: absolute;
+            margin-left: 80px;
+        }
+
+        .bawah {
+            background-color: #150544;
+            height: 160px;
+            width: 140px;
+            border-radius: 15px;
+            margin-top: 2545px;
+            z-index: 15;
+            top: 75%;
+            position: absolute;
+            margin-left: 450px;
+        }
+
+
+        /* css cuman buat biar ke tengah ajaa */
+    </style>
+
+</head>
+
+<body>
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg" style="margin-top: -10px;">
+
+        <div class="container" style="width: 100%; ">
+            <a class="navbar-brand" href="#" style="padding: 15px; margin-top: -10px; margin-left:0px;">
+                <img src="<?php echo base_url() ?>assets/images/ini-inti1.png" class="" alt="logo umprop inti" width="75">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav ml-auto" style="margin-top:25px;">
+                <div class="collapse navbar-collapse" id="navbarNav" style="padding-right: -60px; font-family:poppins;">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="<?php echo site_url('Home'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo site_url('Content/profil'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo site_url('Content/layanan'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Layanan INTI-CSIRT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: black;">RFC 2350</a>
+                        </li>
+                        <li class="nav-item dropdown" style="margin-left:-10px;">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black; margin-right: 25px;">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="<?php echo site_url('Content/indok/'); ?>">Informasi Dokumen</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('Content/informasi/'); ?>">Informasi Kontak</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('Content/tentang/'); ?>">Tentang INTI-CSIRT</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('Content/kebijakan/'); ?>">Kebijakan</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('Content/dokpen/'); ?>">Dokumen Legal Pendukung</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('Content/alper/'); ?>">Alamat Pelaporan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo site_url('Content/siber'); ?>" class="nav-link" style="color: black; margin-right: 25px;">Aduan Siber</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo site_url('Content/hubungi'); ?>" class="nav-link" style="color: black;">Hubungi Kami</a>
+                        </li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="" style="width:100%; height: 2400px;">
+        <h2 style="font-family:poppins; margin-top:60px; text-align:center;">Kerentanan Zero-Day Pada Apache Java Logging Library LOG4J</h2>
+        <img src="<?php echo base_url() ?>assets/images/beritaa1.jpg" style="width:45%; margin-top:60px; margin-left:26%;">
+
+        <p style="font-family:poppins; margin-top:80px; margin-left:11%; font-size:medium"><b>RINGKASAN</b></p>
+
+        <ol>
+            <li style="font-family:poppins;  margin-left:120px; margin-top:20px;">Pada tanggal 9 Desember 2021, periset keamanan menemukan adanya kerentanan zeroday yang diberi nama CVE-2021-44228 pada pustaka<br>Apache Java Logging Library atau yang umum dikenal dengan log4j</li>
+            <li style="font-family:poppins;  margin-left:120px;">Adapun versi dari Log4j yang terdampak oleh kerentanan ini adalah sistem elektronik yang menggunakan Apache Log4j antara versi 2.0 sampai<br>dengan 2.14.1. Berdasarkan CVSS Score 3.0, nilai kerentanan ini memiliki nilai 10.0 atau dikategorikan sebagai KRITIKAL. Eksploitasi dari kerentanan ini<br>memungkinkan penyerang dapat mengambil alih penuh server yang terdampak.</li>
+            <li style="font-family:poppins;  margin-left:120px;">Seluruh pengguna yang menggunakan versi yang terdampak direkomendasikan untuk melakukan pemutakhiran ke versi terbaru atau melakukan<br>langkah mitigasi sebagaimana direkomendasikan pada dokumen ini.</li>
+        </ol>
+
+        <p style="font-family:poppins; margin-top:50px; margin-left:11%; font-size:medium"><b>PENDAHULUAN</b></p>
+
+        <P style="font-family:poppins;  margin-left:11%; margin-top:20px;">Pada tanggal 9 Desember 2021, periset keamanan menemukan adanya kerentanan zero-day yang diberi nama CVE-2021-44228 pada pustaka Apache<br>
+            Java Logging Library atau yang umum dikenal dengan log4j. Proof of Concept (PoC) exploit dari kerentanan tersebut juga telah tersedia secara bebas.<br>
+            Eksploitasi dari kerentanan ini memungkinkan penyerang dapat mengambil alih penuh server yang terdampak.</P>
+
+        <p style="font-family:poppins; margin-top:50px; margin-left:11%; font-size:medium"><b>KERENTANAN</b></p>
+
+        <P style="font-family:poppins;  margin-left:11%; margin-top:20px;">Berdasarkan CVSS Score 3.0, nilai kerentanan ini memiliki nilai : 10.0 atau dikategorikan sebagai <b>KRITIKAL</b>.</P>
+        <img src="<?php echo base_url() ?>assets/images/isi1.png" style="width:80%; margin-top:60px; margin-left:10%;">
+
+        <p style="font-family:poppins; margin-top:80px; margin-left:11%; font-size:medium"><b>VERSI YANG TERDAMPAK</b></p>
+        <p style="font-family:poppins;  margin-left:11%; margin-top:20px;">Adapun versi dari Log4j yang terdampak oleh kerentanan ini adalah sistem elektronik yang menggunakan Apache Log4j antara versi 2.0 sampai dengan<br>2.14.1. Hal ini berpotensi pula terdampak pada aplikasi dan layanan yang dikembangkan dengan bahasa pemrograman Java yang menggunakan<br>pustaka ini.</p>
+
+        <p style="font-family:poppins; margin-top:50px; margin-left:11%; font-size:medium"><b>PANDUAN MITIGASI KERENTANAN</b></p>
+
+        <ol>
+            <li style="font-family:poppins;  margin-left:120px; margin-top:20px;">Jika versi Apache log4j yang digunakan sebelum versi 2.10, direkomendasikan untuk memutakhirkan Apache log4j yang digunakan ke versi log4j-2.15.0<br>atau terbaru.</li>
+            <li style="font-family:poppins;  margin-left:120px;">Langkah mitigasi yang dapat dilakukan terkait dengan hal ini apabila sistem elektronik yang digunakan merupakan versi 2.10 atau terbaru yakni:<br>Mengkonfigurasi log4j2.formatMsgNoLookups menjadi true dengan menambahkan baris berikut pada JVM command untuk memulai aplikasi.<br>
+                “-Dlog4j2.formatMsgNoLookups=True”<br>
+                atau mengkonfigurasi nilai environment variabel<br>
+                LOG4J_FORMAT_MSG_NO_LOOKUPS Menjadi true</li>
+            <li style="font-family:poppins;  margin-left:120px;">Apabila versi Apache log4j yang digunakan mulai dari versi dari 2.0-beta9 hingga 2.10.0, langkah mtigasi yang dapat dilakukan yakni dengan JndiLookup<br>class dari classpath:<br>
+                zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class</li>
+            <li style="font-family:poppins;  margin-left:120px;">Menonaktifkan JNDI. Misalkan dengan menambahkan Spring.jndi.ignore=true yang digunakan pada spring.properties</li>
+            <li style="font-family:poppins;  margin-left:120px;">Direkomendasikan untuk menggunakan JDK versi yang lebih tinggi dari 11.0.1, 8u191, 7u201, 6u211 atau yang lebih terbaru</li>
+            <li style="font-family:poppins;  margin-left:120px;">Jika memungkinkan lakukan pembatasan terhadap sistem elektronik yang terdampak agar tidak dapat diakses melalui internet.</li>
+            <li style="font-family:poppins;  margin-left:120px;">Lakukan langkah perlindungan lainnya dengan memutakhirkan rules deteksi pada perimeter keamanan WAF yang digunakan.</li>
+        </ol>
+
+        <p style="font-family:poppins; margin-top:50px; margin-left:11%; font-size:medium"><b>REFERENSI</b></p>
+
+        <ol>
+            <li li style="font-family:poppins;  margin-left:120px; margin-top:20px;">Flayer BSSN Peringatan Keamanan Log4J.pdf</li>
+            <li style="font-family:poppins;  margin-left:120px;">Log4j RCE 0-day actively exploited. https://www.cert.govt.nz/itspecialists<br>
+                advisories/log4j-rce-0-day-actively-exploited</li>
+            <li style="font-family:poppins;  margin-left:120px;">Apache Log4j Security Vulnerabilities.<br>
+                https://logging.apache.org/log4j/2.x/security.html</li>
+            <li style="font-family:poppins;  margin-left:120px;">AusCERT Security Bulletin. https://auscert.org.au/bulletins/ASB-2021.0244.2</li>
+            <li style="font-family:poppins;  margin-left:120px;">Log4Shell: RCE 0-day exploit found in log4j2, a popular Java logging package.<br>
+                https://www.lunasec.io/docs/blog/log4j-zero-day/</li>
+            <li style="font-family:poppins;  margin-left:120px;">https://csirt.kemenkeu.go.id/in/post/peringatan-keamanan-kerentanan-zero-day-pada-apache-java-logging-library-log4j</li>
+        </ol>
+    </section>
+    <footer style="background:#150544; padding:10px; text-align:center; height:100px;">
+        <p style="margin-top: 28px; color:white; font-family:poppins;">Copyright &copy; 2022 INTI-CSIRT</p>
+    </footer>
+</body>
+
+</html>

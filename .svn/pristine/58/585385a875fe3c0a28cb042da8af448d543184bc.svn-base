@@ -1,0 +1,50 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #e2ecf3;
+}
+
+.header,
+.header-fixed[data-kt-sticky-header="on"] .header {
+  background-color: #1f2855;
+}
+
+.wrapper .header .container-fluid .page-title h1 {
+  color: white;
+}
+
+.aside-logo {
+  background-color: #1f2855;
+}
+
+@media (min-width: 992px) {
+  .header {
+    height: 65px;
+  }
+}
+
+.menu-state-bg .menu-item .menu-link.active {
+  background-color: #E2ECF3;
+}
+
+.menu-state-bg .menu-item .menu-link.active .menu-title,
+.menu-state-bg .menu-item .menu-link.active .menu-icon i {
+  font-weight: bold;
+  color: #1f2855;
+}
+
+.menu-state-bg .menu-item.hover>.menu-link:not(.disabled):not(.active),
+.menu-state-bg .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-state-bg .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-title,
+.menu-state-bg .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-title,
+.menu-state-bg .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-icon i,
+.menu-state-bg .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-icon i,
+.menu-state-bg .menu-item.here>.menu-link .menu-title,
+.menu-state-bg .menu-item.show>.menu-link .menu-title,
+.menu-state-bg .menu-item.here>.menu-link .menu-title,
+.menu-state-bg .menu-item.show>.menu-link .menu-icon i,
+.menu-state-bg .menu-item.here>.menu-link,
+.menu-state-bg .menu-item.show>.menu-link,
+.menu-state-bg .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-title,
+.menu-state-bg .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-title,
+.menu-arrow {
+  color: #1f2855;
+}
